@@ -1,0 +1,30 @@
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+flush privileges;
+
+DROP DATABASE IF EXISTS mydb;
+CREATE DATABASE mydb;
+USE mydb;
+
+CREATE TABLE Customers (
+	CustomerID int auto_increment primary key,
+	fullName varchar(255),
+    Balance int
+);
+
+CREATE TABLE Products (
+	ProductID int auto_increment primary key,
+    ProductName varchar(255),
+    Price int
+);
+
+INSERT INTO Customers(fullName, Balance) values ('Mitchell Bath', 500);
+INSERT INTO Customers(fullName, Balance) values ('William Smith', 250);
+INSERT INTO Customers(fullName, Balance) values ('Johnathan Ranch', 150);
+
+INSERT INTO Products(ProductName, Price) values ('Model 10', 200);
+INSERT INTO Products(ProductName, Price) values ('Model 20', 400);
+INSERT INTO Products(ProductName, Price) values ('Model 30', 800);
+
+
+SELECT * FROM Customers;
+
